@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="3 seconds" debug="false">
 
-	<contextName>ttms</contextName>
+	<contextName>dubbotracedemo</contextName>
 	<!--配置常量，在后面的配置中使用 -->
-	<property name="PROJECT_NAME" value="ttms-web" />
+	<property name="PROJECT_NAME" value="tracedemo-web" />
 	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
 	<property name="LOG_HOME" value="/app/logs/${PROJECT_NAME}" />
 	<!--定义日志输出格式 -->
@@ -231,30 +231,13 @@
 	</root>
 
 
-
 	<!-- 项目自己的日志 -->
 	<!-- 业务日志 -->
-	<logger name="com.kuaihuoyun.ttms.web.controllers" level="debug" additivity="false">
+	<logger name="com.scj.dubbotracedemo" level="info" additivity="false">
 		<appender-ref ref="PROJECT-BIZ" />
 		<appender-ref ref="PROJECT-ERROR" />
 	</logger>
 
-	<!-- 其他开源框架的日志不打印到PROJECT-COMMON，但错误级别的会打印到PROJECT-ERROR -->
-	<!-- shiro日志 -->
-	<logger name="org.apache.shiro" level="debug" additivity="false">
-		<appender-ref ref="PROJECT-SHIRO" />
-		<appender-ref ref="PROJECT-ERROR" />
-	</logger>
-	<!-- jasig.cas的日志，error级别 -->
-	<logger name="org.jasig.cas" level="debug" additivity="false">
-		<appender-ref ref="PROJECT-CAS" />
-		<appender-ref ref="PROJECT-ERROR" />
-	</logger>
-	<!-- mybatis的日志 -->
-	<logger name="org.mybatis" level="debug" additivity="false">
-		<appender-ref ref="PROJECT-MYBATIS" />
-		<appender-ref ref="PROJECT-ERROR" />
-	</logger>
 	<!-- zookeeper的日志，因为会比较多所以是error级别 -->
 	<logger name="org.apache.zookeeper" level="debug" additivity="false">
 		<appender-ref ref="PROJECT-ZOOKEEPER" />
@@ -277,20 +260,6 @@
 	<!-- spring的日志，error级别 -->
 	<logger name="org.springframework" level="debug" additivity="false">
 		<appender-ref ref="PROJECT-SPRING" />
-		<appender-ref ref="PROJECT-ERROR" />
-	</logger>
-	<!-- quartz的日志，error级别 -->
-	<logger name="org.quartz" level="debug" additivity="false">
-		<appender-ref ref="PROJECT-QUARTZ" />
-		<appender-ref ref="PROJECT-ERROR" />
-	</logger>
-	<logger name="org.apache.http" level="debug" additivity="false">
-		<appender-ref ref="PROJECT-APACHEHTTP" />
-		<appender-ref ref="PROJECT-ERROR" />
-	</logger>
-
-	<logger name="com.baidu.disconf" level="info" additivity="false">
-		<appender-ref ref="PROJECT-COMMON" />
 		<appender-ref ref="PROJECT-ERROR" />
 	</logger>
 
